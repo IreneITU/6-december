@@ -1,74 +1,66 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar} from 'expo-status-bar';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
 
-//import dog from './dog.png';
 
-export default class LoginScreen extends React.Component {
-state={
-  email: "",
-  password:""
-}
-  signupPressed = ()=>{
-    Alert.alert('Fjern alert og gå til side med login')
-  }
 
-  loginPressed = ()=> {
-    Alert.alert('Fjern alert og gå til første side i selve appen')
-  }
-  
-  NewPassword = ()=> {
-    Alert.alert('Fjern alert og gå til NewPassword')
-  }
-render() {
+export default function LoginScreen (navigation) {
+const [email, setEmail] =useState('');
+const [password, setpassword] =useState ('');
+
 return (
-<View style={styles.container}>
-<Text style={styles.headline}>PUP</Text>
+  <View style={styles.container}>
+    <Text style={styles.headline}>PUP</Text>
+   {/* <Image style={styles.image} source={require('./assets/DogWalkers.png')}/> */}
+ 
+    <StatusBar style="auto" />
+    <View style={styles.textInputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Email."
+        placeholderTextColor="#003f5c"
+        onChangeText={(email) => setEmail(email)}
+      />
+    </View>
 
-<View style= {styles.textInputView}>
-<TextInput style={styles.textInput}
-placeholder= 'Email'
-placeholderTextColor= '#FFFFFF'
-onChangeText={text => this.setState({email:text})}/>
-</View>
-<View style= {styles.textInputView}>
-<TextInput 
-style={styles.textInput}
-secureTextEntry
-placeholder= 'Password'
-placeholderTextColor= '#FFFFFF'
-onChangeText={text => this.setState({password:text})}/>
-</View>
+    <View style={styles.textInputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Password."
+        placeholderTextColor="#003f5c"
+        secureTextEntry={true}
+        onChangeText={(password) => setPassword(password)}
+      />
+    </View>
+      <TouchableOpacity onPress={() => navigation.navigate('NewPassword')}>
+      <Text style={styles.help}>Forgot Password?</Text>
+    </TouchableOpacity>
 
-
-
-<TouchableOpacity onPress={() => navigation.navigate('NewPassword')} >
-<Text style={styles.help}>Forgot Password?</Text>
-</TouchableOpacity>
-
-<TouchableOpacity style={styles.login} onPress={this.loginPressed}>
-<Text style={styles.loginText}>Log In</Text>
-</TouchableOpacity>
-
-<TouchableOpacity style={styles.signup} onPress={this.signupPressed}>
-<Text style={styles.signupText}>Sign Up</Text>
-</TouchableOpacity>
-
-
-</View>
-
+    <TouchableOpacity style={styles.login}
+    onPress={() => navigation.navigate('HomeScreen')}>
+      <Text style={styles.loginText}>LOGIN</Text>
+    </TouchableOpacity>
+  </View>
 );
-};
-};
+}
 
 const styles = StyleSheet.create({
-image:{
+  container: {
+    flex: 1,
+    backgroundColor: '#BBE6DD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    },
+    headline: {
+      color: '#539888',
+      fontSize: 80,
+      marginBottom:10
+      },
+    
 
+image: {
+  marginBottom: 40,
 },
-headline: {
-  color: '#539888',
-  fontSize: 80,
-  marginBottom:10
-  },
 
 textInputView: {
   width:'80%',
@@ -80,49 +72,27 @@ textInputView: {
   padding:20
 },
 
-textInput: {
+
+TextInput: {
   height:50,
   color:'white'
+
 },
 
-help:{
+help: {
   color:'#000000',
   fontSize:11
-},
-container: {
-flex: 1,
-backgroundColor: '#BBE6DD',
-alignItems: 'center',
-justifyContent: 'center',
-},
 
-signupText:{
-color: '#3C8979',
-fontSize:  26,
-},
-
-loginText:{
-color: '#FFFFFF',
-fontSize:  26,
 },
 
 login: {
-backgroundColor: '#3C8979',
-width: "80%",
-borderRadius: 50,
-alignItems:'center',
-fontWeight: 'bold',
-padding: '2%',
-marginTop: '35%'
-},
-
-signup: {
-backgroundColor: '#BBE6DD',
-width: '80%',
-borderRadius: 50,
-alignItems:'center',
-fontWeight: 'bold',
-padding: '2%',
-marginTop: '5%'
-},
+  backgroundColor: '#3C8979',
+  width: "50%",
+  borderRadius: 25,
+  alignItems:'center',
+  fontWeight: 'bold',
+  padding: '2%',
+  marginTop: '5%'
+  },
+  
 });
