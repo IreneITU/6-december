@@ -1,58 +1,60 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {StatusBar} from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
-//import dog from './dog.png';
+
+export default function SignUpScreen (navigation) {
+const [email, setEmail] =useState('');
 
 
-
-export default class LoginScreen extends React.Component {
-state={
-  email: ""
-}
-  sendMail = ()=>{
-    Alert.alert('You will soon recieve a mail with your new password')
-  }
-
-  GoTologin = ()=> {
-    Alert.alert('Fjern alert og gå til LoginScreen')
-  }
-  
-render() {
 return (
-<View style={styles.container}>
-<Text style={styles.headline}>PUP</Text>
+  <View style={styles.container}>
+    <Text style={styles.headline}>PUP</Text>
+   {/* <Image style={styles.image} source={require('./assets/DogWalkers.png')}/> */}
+ 
+    <StatusBar style="auto" />
+    <View style={styles.textInputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder='Email.'
+        placeholderTextColor="#003f5c"
+        onChangeText={(email) => setEmail(email)}
+      />
+    </View>
 
-<View style= {styles.textInputView}>
-<TextInput style={styles.textInput}
-placeholder= 'Email'
-placeholderTextColor= '#FFFFFF'
-onChangeText={text => this.setState({email:text})}/>
-</View>
+       <TouchableOpacity 
+      onPress={() => navigation.navigate('LoginScreen')}>
+      <Text style={styles.help}>Go back to login</Text>
+    </TouchableOpacity>
 
-<TouchableOpacity style={styles.newPassword} onPress={this.sendMail}>
-<Text style={styles.newPasswordText}>Ask for new password</Text>
-</TouchableOpacity>
-
-<TouchableOpacity style={styles.GoToLogIn} onPress={this.GoTologin}>
-<Text style={styles.GoToLogIn}>Go back to Log In</Text>
-</TouchableOpacity>
-</View>
+    <TouchableOpacity style={styles.login}
+    onPress={() => alert('Check your email') }>
+      <Text style={styles.loginText}>Get new password</Text>
+    </TouchableOpacity>
+  </View>
 );
-};
-};
+}
 
 const styles = StyleSheet.create({
-image:{
+  container: {
+    flex: 1,
+    backgroundColor: '#BBE6DD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    },
+    headline: {
+      color: '#539888',
+      fontSize: 80,
+      marginBottom:10
+      },
+    
 
+image: {
+  marginBottom: 40,
 },
-headline: {
-  color: '#539888',
-  fontSize: 80,
-  marginBottom:10
-  },
 
 textInputView: {
   width:'80%',
-  backgroundColor:'#539888',
+  backgroundColor:'#3C8979',
   borderRadius:25,
   height:50,
   marginBottom:5,
@@ -60,46 +62,27 @@ textInputView: {
   padding:20
 },
 
-textInput: {
+
+TextInput: {
   height:50,
   color:'white'
+
 },
 
-help:{
+help: {
   color:'#000000',
   fontSize:11
-},
-container: {
-flex: 1,
-backgroundColor: '#BBE6DD',
-alignItems: 'center',
-justifyContent: 'center',
+
 },
 
-newPasswordText:{
-color: '#FFFFFF',
-fontSize:  10,
-},
-
-newPassword: {
-backgroundColor: '#3C8979',
-width: "80%",
-borderRadius: 50,
-alignItems:'center',
-fontWeight: 'bold',
-padding: '2%',
-marginTop: '5%'
-},
-
-GoToLogIn: {
-  backgroundColor: '#BBE6DD',
-  width: '80%',
-  borderRadius: 50,
+login: {
+  backgroundColor: '#3C8979',
+  width: "50%",
+  borderRadius: 25,
   alignItems:'center',
   fontWeight: 'bold',
   padding: '2%',
   marginTop: '5%'
   },
-
-
+  
 });
