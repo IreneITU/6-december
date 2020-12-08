@@ -18,13 +18,18 @@ export default function HomeScreen({ navigation, route }) {
   });
 
   const [newImage, setNewImage] = useState(null)
+  const [location, setLocation] = useState({
+    latitude: 55.641267,
+    longitude: 12.517784,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  });
+
 
   return (
-
     
     <View style={styles.screenContainer}>
        <MapView
-          style={styles.map} initialRegion={{
             latitude: 55.641267,
             longitude: 12.517784,
             latitudeDelta: 0.0922,
