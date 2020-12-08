@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 import CameraScreen from './components/CameraScreen';
 import HomeScreen from './components/HomeScreen';
 import ImagePickerExample from './components/ImagePicker';
@@ -15,13 +14,12 @@ import NewPassword from './components/NewPassword';
 import WeatherScreen from './components/WeatherScreen';
 import { Platform } from 'react-native';
 
-
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="LogIn">
+      <Drawer.Navigator initialRouteName="HomeScreen">
         <Drawer.Screen
           name="LogIn"
           component={LoginScreen}
@@ -37,7 +35,7 @@ export default function App() {
           name="HomeScreen"
           component={HomeScreen}
           options={{
-            headerShown: true,
+            headerShown: false,
             drawerIcon: config => <Icon
               size={40}
               name={Platform.OS === 'android' ? 'md-list' : 'ios-home'}

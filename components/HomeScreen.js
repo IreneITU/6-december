@@ -35,14 +35,14 @@ export default function HomeScreen({ navigation, route }) {
         
         <View style={styles.topContainer} pointerEvents="box-none">
         <TouchableOpacity style={styles.menuButton}
-          onPress={() => console.log('hej', newImage, ASPECT_RATIO,)}
+          onPress={() => navigation.openDrawer()}
         >
-          <Text style={styles.paragraph2}> Fjernes måske?</Text>
+          <Text style={styles.paragraph2}> MENU </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.menuButton} 
           onPress={() => navigation.navigate('Weather')} >
-          <Text style={styles.paragraph2}> Weather</Text>
+          <Text style={styles.paragraph2}> Weather expert</Text>
         </TouchableOpacity>
         </View>
 
