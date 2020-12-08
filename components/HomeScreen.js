@@ -30,11 +30,7 @@ export default function HomeScreen({ navigation, route }) {
     
     <View style={styles.screenContainer}>
        <MapView
-            latitude: 55.641267,
-            longitude: 12.517784,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+          style={styles.map} initialRegion={location}
           >
         </MapView>
         
