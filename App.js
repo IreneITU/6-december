@@ -31,6 +31,7 @@ export default function App() {
             ></Icon>
           }}
         />
+        
         <Drawer.Screen
           name="HomeScreen"
           component={HomeScreen}
@@ -42,6 +43,7 @@ export default function App() {
             ></Icon>
           }}
         />
+
         <Drawer.Screen
           name="SignUp"
           component={SignUpScreen}
@@ -76,7 +78,6 @@ export default function App() {
               name={Platform.OS === 'android' ? 'md-list' : 'ios-happy'}
             ></Icon>
           }}
-
         />
 
         <Drawer.Screen
@@ -125,8 +126,6 @@ export default function App() {
             ></Icon>
           }}
         />
-
-
 
       </Drawer.Navigator>
     </NavigationContainer>

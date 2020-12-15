@@ -29,7 +29,7 @@ export default function ImagePickerExample({ navigation, onImgSucc }) {
 
     if (!result.cancelled) {
       setImage(result.uri);
-      navigation.navigate('Home', { myPicture: result.uri });
+      navigation.navigate('HomeScreen', { myPicture: result.uri });
 
     }
   };

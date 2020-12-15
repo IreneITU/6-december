@@ -57,7 +57,7 @@ export default function CameraScreen({ navigation }) {
               if (cameraRef) {
                 let photo = await cameraRef.takePictureAsync();
                 console.log('photo', photo, photo.uri);
-                navigation.navigate('Home', { myPicture: photo.uri });
+                navigation.navigate('HomeScreen', { myPicture: photo.uri });
               }
             }}>
             <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> SNAP </Text>
