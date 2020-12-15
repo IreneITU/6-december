@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StatusBar} from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
 
 export default function SignUpScreen (navigation) {
 const [email, setEmail] =useState('');
@@ -22,7 +22,7 @@ return (
     </View>
 
        <TouchableOpacity 
-      onPress={() => navigation.navigate('LoginScreen')}>
+      onPress={() => alert('Use the menu to go back to login') }>
       <Text style={styles.help}>Go back to login</Text>
     </TouchableOpacity>
 
