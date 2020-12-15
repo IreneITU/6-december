@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationContext } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -55,17 +55,6 @@ export default function App() {
             ></Icon>
           }}
         />
-        <Drawer.Screen
-          name="Forgot Password"
-          component={NewPassword}
-          options={{
-            headerShown: true,
-            drawerIcon: config => <Icon
-              size={40}
-              name={Platform.OS === 'android' ? 'md-list' : 'ios-help'}
-            ></Icon>
-          }}
-        />
 
         <Drawer.Screen
           name="ProfilePage"
@@ -92,14 +81,18 @@ export default function App() {
           }}
         />
         <Drawer.Screen
+          name="Forgot Password"
+          component={NewPassword}
+          options={{
+            drawerLabel: () => null,
+          }}
+        />
+
+        <Drawer.Screen
           name="Camera"
           component={ImagePickerExample}
           options={{
-            headerShown: true,
-            drawerIcon: config => <Icon
-              size={40}
-              name={Platform.OS === 'android' ? 'md-list' : 'ios-camera'}
-            ></Icon>
+            drawerLabel: () => null,
           }}
         />
 
@@ -107,15 +100,14 @@ export default function App() {
           name="Camera2"
           component={CameraScreen}
           options={{
-            headerShown: false,
-            drawerIcon: config => <Icon
-              size={40}
-              name={Platform.OS === 'android' ? 'md-list' : 'ios-camera'}
-            ></Icon>
+            drawerLabel: () => null,
           }}
         />
 
+
       </Drawer.Navigator>
+
+
     </NavigationContainer>
   );
 }
