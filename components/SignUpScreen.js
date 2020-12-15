@@ -45,12 +45,12 @@ return (
     </View>
 
       <TouchableOpacity 
-      onPress={() => navigation.navigate('LoginScreen')}>
+      onPress={() => alert('Use the menu to go back to login') }>
       <Text style={styles.help}>Go back to login</Text>
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.login}
-    onPress={() => navigation.navigate('HomeScreen')}>
+    onPress={() => alert('You succesfully signed up. Welcome. Use the menu to go to HomeScreen') }>
       <Text style={styles.loginText}>Sign up</Text>
     </TouchableOpacity>
   </View>
