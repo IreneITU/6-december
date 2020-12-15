@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, Dimensions,ImageBackground, TouchableOpacity, Button } from 'react-native';
+import * as Location from 'expo-location';
 import Constants from 'expo-constants';
 import { Card } from 'react-native-paper';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import Overlay2 from './Overlay2';
+import { markers } from './utils/ListOfMarkers';
+import dispenser from '../assets/dogbag.png';
 
 const screen = Dimensions.get('window');
 const backgroundImage = { uri: "https://i.imgur.com/N8f6Qrl.png" };
@@ -11,27 +14,57 @@ const ASPECT_RATIO = screen.width / screen.height;
 
 export default function HomeScreen({ navigation, route }) {
 
-  useEffect(() => {
-    if (route.params) {
-      setNewImage(route.params.myPicture)
-    }
-  });
+const [newImage, setNewImage] = useState(null);
+const [location, setLocation] = useState({
+  latitude: 55.641267,
+  longitude: 12.517784,
+});
 
-  const [newImage, setNewImage] = useState(null)
-  const [location, setLocation] = useState({
-    latitude: 55.641267,
-    longitude: 12.517784,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  });
+useEffect(() => {
+  if (route.params) {
+    setNewImage(route.params.myPicture)
+  }
+});
+
+useEffect(() => {
+  getLocation();
+  }, []);
+
+
+
+const getLocation = async () => {
+  let { status } = await Location.requestPermissionsAsync();
+  if (status !== 'granted') {
+    setErrorMsg('Permission to access location was denied');
+  }
+
+  let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.BestForNavigation});
+  const {latitude, longitude } = location.coords
+  setLocation({latitude, longitude});
+};
+
 
 
   return (
     
     <View style={styles.screenContainer}>
        <MapView
-          style={styles.map} initialRegion={location}
-          >
+          style={styles.map}
+          region={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          }}>
+            <Marker coordinate={{latitude: location.latitude, longitude: location.longitude,}} title='You are here' description='Strolling...'/>
+            
+            {markers.map((marker, index) => (
+              <MapView.Marker key={index}
+              coordinate={marker.coordinates}
+              title='Dog bag dispenser'
+              image={dispenser}
+              />
+            ))}
         </MapView>
         
         <View style={styles.topContainer} pointerEvents="box-none">
