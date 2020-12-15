@@ -4,10 +4,14 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'reac
 
 
 
-export default function SignUpScreen (navigation) {
+export default function SignUpScreen ({navigation}) {
 const [email, setEmail] =useState('');
 const [password, setPassword] =useState ('');
 
+const signupPress = () => {
+  navigation.navigate('HomeScreen')
+  alert('You have succesfully signed up!')
+};
 
 return (
   <View style={styles.container}>
@@ -50,7 +54,7 @@ return (
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.login}
-    onPress={() => alert('You succesfully signed up. Welcome. Use the menu to go to HomeScreen') }>
+    onPress={signupPress}>
       <Text style={styles.loginText}>Sign up</Text>
     </TouchableOpacity>
   </View>

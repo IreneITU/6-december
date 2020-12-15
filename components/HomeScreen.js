@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Button } from 'react-native';
 import * as Location from 'expo-location';
-import Constants from 'expo-constants';
 import { Card } from 'react-native-paper';
 import MapView, { Marker } from 'react-native-maps';
 import Overlay2 from './Overlay2';

@@ -9,7 +9,6 @@ import CameraScreen from './components/CameraScreen';
 import HomeScreen from './components/HomeScreen';
 import ImagePickerExample from './components/ImagePicker';
 import ProfilePageScreen from './components/ProfilePageScreen';
-import MapRoutesScreen from './components/MapRoutesScreen';
 import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
 import NewPassword from './components/NewPassword';
@@ -81,18 +80,6 @@ export default function App() {
           }}
         />
 
-        <Drawer.Screen
-          name="MapRoutes"
-          component={MapRoutesScreen}
-          options={{
-            headerShown: true,
-            title: "Find suggested routes",
-            drawerIcon: config => <Icon
-              size={40}
-              name={Platform.OS === 'android' ? 'md-list' : 'ios-image'}
-            ></Icon>
-          }}
-        />
         <Drawer.Screen
           name="Weather"
           component={WeatherScreen}

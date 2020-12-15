@@ -5,12 +5,15 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'reac
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setLogin] = useState(false);
 
   const loginPress = () => {
     navigation.navigate('HomeScreen')
     alert('You are now logged in')
   };
+
+  const forgotPassPress = () =>{
+    navigation.navigate('Forgot Password')
+  }
 
   return (
     <View style={styles.container}>
@@ -36,7 +39,7 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(password) => setPassword(password)}
         />
       </View>
-      <TouchableOpacity onPress={() => alert('Use the menu to go to Forgot Password')}>
+      <TouchableOpacity onPress={forgotPassPress}>
         <Text style={styles.help}>Forgot Password?</Text>
       </TouchableOpacity>
 
