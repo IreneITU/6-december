@@ -32,12 +32,12 @@ return (
         onChangeText={(password) => setPassword(password)}
       />
     </View>
-      <TouchableOpacity onPress={() => navigation.navigate('NewPassword')}>
+      <TouchableOpacity onPress={() => alert('Use the menu to go to Forgot Password') }>
       <Text style={styles.help}>Forgot Password?</Text>
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.login}
-    onPress={() => navigation.navigate('HomeScreen')}>
+    onPress={() => alert('You succesfully logged in. Use the menu to go to HomeScreen') }>
       <Text style={styles.loginText}>LOGIN</Text>
     </TouchableOpacity>
   </View>
