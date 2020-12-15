@@ -29,7 +29,7 @@ export default function WeatherScreen ({ navigation, route, API_KEY }){
       setLocation({latitude, longitude});
     };
 
-    //Den gider ikke hente API_KEY ordentligt, så jeg har bare sat den ind i url'en
+    //Fetching data through URL API.
     const fetchWeather = () => {
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&APPID=849338767c0e95025b5559533d26b7c4&units=metric`)
         .then(res => res.json())

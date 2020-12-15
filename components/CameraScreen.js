@@ -7,6 +7,7 @@ export default function CameraScreen({ navigation }) {
   const [cameraRef, setCameraRef] = useState(null)
   const [type, setType] = useState(Camera.Constants.Type.back);
 
+  // permission test
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();

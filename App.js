@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+//importing local components
 import CameraScreen from './components/CameraScreen';
 import HomeScreen from './components/HomeScreen';
 import ImagePickerExample from './components/ImagePicker';
@@ -12,7 +14,6 @@ import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
 import NewPassword from './components/NewPassword';
 import WeatherScreen from './components/WeatherScreen';
-import { Platform } from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -31,7 +32,7 @@ export default function App() {
             ></Icon>
           }}
         />
-        
+
         <Drawer.Screen
           name="HomeScreen"
           component={HomeScreen}
@@ -119,7 +120,7 @@ export default function App() {
           name="Camera2"
           component={CameraScreen}
           options={{
-            headerShown: true,
+            headerShown: false,
             drawerIcon: config => <Icon
               size={40}
               name={Platform.OS === 'android' ? 'md-list' : 'ios-camera'}
