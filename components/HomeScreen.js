@@ -66,7 +66,7 @@ export default function HomeScreen({ navigation, route }) {
       <View style={styles.topContainer} pointerEvents="box-none">
         <TouchableOpacity style={styles.menuButton}
           onPress={() => navigation.openDrawer()}>
-          <Text style={styles.paragraph2}> MENU </Text>
+          <Text style={styles.paragraph2}> Menu </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.menuButton}
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   paragraph2: {
-    fontSize: 16,
+    fontSize: 13,
     flex: 2,
     fontWeight: 'bold',
     textAlign: 'center',

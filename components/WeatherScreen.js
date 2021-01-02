@@ -4,12 +4,11 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
-import {API_KEY } from './utils/WeatherAPIKey.js';
 import { weatherInfo } from './utils/WeatherDescriptions.js';
 
 import weatherDog from '../assets/weatherDog.png';
 
-export default function WeatherScreen ({ navigation, route, API_KEY }){
+export default function WeatherScreen ({ navigation, route}){
     const [temperature, setTemperature] = useState(0);
     const [weatherCondition, setWeathercondition] = useState(null);
     const [icon, setIcon] = useState(null);
@@ -56,6 +55,7 @@ export default function WeatherScreen ({ navigation, route, API_KEY }){
                 <Text style={styles.paragraph1}>{weatherCondition ? 'Today ' + weatherInfo[weatherCondition].title : ' Loading weather conditions'}</Text>
                 <Text style={styles.paragraph2}>{temperature ? temperature + '°': ' Loading weather conditions'}</Text>
                 <Image style={{width: 130, height: 130}} source={weatherDog}/>
+                <Text style={{fontSize: 26, color: 'red'}}>{location ? '' : errorMsg}</Text>
             </View>
         );
     
