@@ -1,3 +1,12 @@
+/*
+Authors:
+Emil Alleshauge Dalskov (emda@itu.dk)
+Irene Bøjle Kjær-Hansen (irkj@itu.dk)
+Kristine Gøtje Jørgensen (krgj@itu.dk)
+Line Stengaard Henriksen (lhen@itu.dk)
+Lars Peter Jerichau Clausen (lacl@itu.dk)
+*/
+
 import * as React from 'react';
 import { NavigationContainer, NavigationContext } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
